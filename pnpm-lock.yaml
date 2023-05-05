@@ -4,6 +4,27 @@ dependencies:
   '@finsweet/ts-utils':
     specifier: ^0.39.1
     version: 0.39.1
+  '@fullcalendar/core':
+    specifier: ^6.1.6
+    version: 6.1.6
+  '@fullcalendar/daygrid':
+    specifier: ^6.1.6
+    version: 6.1.6(@fullcalendar/core@6.1.6)
+  '@fullcalendar/list':
+    specifier: ^6.1.6
+    version: 6.1.6(@fullcalendar/core@6.1.6)
+  '@fullcalendar/multimonth':
+    specifier: ^6.1.6
+    version: 6.1.6(@fullcalendar/core@6.1.6)
+  '@fullcalendar/rrule':
+    specifier: ^6.1.6
+    version: 6.1.6(@fullcalendar/core@6.1.6)(rrule@2.7.2)
+  '@fullcalendar/timegrid':
+    specifier: ^6.1.6
+    version: 6.1.6(@fullcalendar/core@6.1.6)
+  tippy.js:
+    specifier: ^6.3.7
+    version: 6.3.7
 
 devDependencies:
   '@changesets/changelog-git':
@@ -535,6 +556,56 @@ packages:
       typescript: 5.0.3
     dev: true
 
+  /@fullcalendar/core@6.1.6:
+    resolution: {integrity: sha512-Q/3pWgOv7qr/eVpuDz+05jxJZSg7Fdwh4XgQP8DlJFLp5aLlOiiKdkTUIO1BX7clQtYTm8P0v7FqMKbsFiQInw==}
+    dependencies:
+      preact: 10.12.1
+    dev: false
+
+  /@fullcalendar/daygrid@6.1.6(@fullcalendar/core@6.1.6):
+    resolution: {integrity: sha512-HKxprePWXRyg1Shn7p0CWgggFZVwvs+Pg0Z9uSvx6a58wP1yTbOoJHhSVv5CDsfjnq1a0y6DsJbPP/V2LDl6bg==}
+    peerDependencies:
+      '@fullcalendar/core': ~6.1.6
+    dependencies:
+      '@fullcalendar/core': 6.1.6
+    dev: false
+
+  /@fullcalendar/list@6.1.6(@fullcalendar/core@6.1.6):
+    resolution: {integrity: sha512-1zWDrVqQxQl/DLHIhLtig1iz/Gnh7hyOe4gEHSg169Om/+wYf8MRgFy8bGBqIFP2eS3Rk7mY3HVLvrkBxmR+wg==}
+    peerDependencies:
+      '@fullcalendar/core': ~6.1.6
+    dependencies:
+      '@fullcalendar/core': 6.1.6
+    dev: false
+
+  /@fullcalendar/multimonth@6.1.6(@fullcalendar/core@6.1.6):
+    resolution: {integrity: sha512-e/BGKTbVC00QFwkk3olKEYzkV+8sTFCxy6/oKm2CCfDKoWuu9jkCf5fgGhiflZ0Y7V0CLQzADuuZsFIxz9DDJA==}
+    peerDependencies:
+      '@fullcalendar/core': ~6.1.6
+    dependencies:
+      '@fullcalendar/core': 6.1.6
+      '@fullcalendar/daygrid': 6.1.6(@fullcalendar/core@6.1.6)
+    dev: false
+
+  /@fullcalendar/rrule@6.1.6(@fullcalendar/core@6.1.6)(rrule@2.7.2):
+    resolution: {integrity: sha512-n1Esy9zaVxstf9bVNhZYAFXr/HlsnGqvV7BAPcKWrxenne56aht1Iszzqctd930kmkuwy7+mjON074zbPO10mA==}
+    peerDependencies:
+      '@fullcalendar/core': ~6.1.6
+      rrule: ^2.6.0
+    dependencies:
+      '@fullcalendar/core': 6.1.6
+      rrule: 2.7.2
+    dev: false
+
+  /@fullcalendar/timegrid@6.1.6(@fullcalendar/core@6.1.6):
+    resolution: {integrity: sha512-WqiGGmzNJeeIt4QjXuBlYTGHp4B+OUb7pYwREt1fer+9keNyG7dd48367pBdia8USk9B3Ep2oHC0aGypJGUFdA==}
+    peerDependencies:
+      '@fullcalendar/core': ~6.1.6
+    dependencies:
+      '@fullcalendar/core': 6.1.6
+      '@fullcalendar/daygrid': 6.1.6(@fullcalendar/core@6.1.6)
+    dev: false
+
   /@humanwhocodes/config-array@0.11.8:
     resolution: {integrity: sha512-UybHIJzJnR5Qc/MsD9Kr+RpO2h+/P1GhOwdiLPXK5TWk5sgTdu88bTD9UP+CKbPPh5Rni1u0GjAdYQLemG8g+g==}
     engines: {node: '>=10.10.0'}
@@ -606,6 +677,10 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
+
+  /@popperjs/core@2.11.7:
+    resolution: {integrity: sha512-Cr4OjIkipTtcXKjAsm8agyleBuDHvxzeBoa1v543lbv1YaIwQjESsVcmjiWiPEbC1FIeHOG/Op9kdCmAmiS3Kw==}
+    dev: false
 
   /@types/is-ci@3.0.0:
     resolution: {integrity: sha512-Q0Op0hdWbYd1iahB+IFNQcWXFq4O0Q5MwQP7uN0souuQ4rPg1vEYcnIOfr1gY+M+6rc8FGoRaBO1mOOvL29sEQ==}
@@ -2221,6 +2296,10 @@ packages:
     hasBin: true
     dev: true
 
+  /preact@10.12.1:
+    resolution: {integrity: sha512-l8386ixSsBdbreOAkqtrwqHwdvR35ID8c3rKPa8lCWuO86dBi32QWHV4vfsZK1utLLFMvw+Z5Ad4XLkZzchscg==}
+    dev: false
+
   /preferred-pm@3.0.3:
     resolution: {integrity: sha512-+wZgbxNES/KlJs9q40F/1sfOd/j7f1O9JaHcW5Dsn3aUUOZg3L2bjpVUcKV2jvtElYfoTuQiNeMfQJ4kwUAhCQ==}
     engines: {node: '>=10'}
@@ -2356,6 +2435,12 @@ packages:
     dependencies:
       glob: 7.2.3
     dev: true
+
+  /rrule@2.7.2:
+    resolution: {integrity: sha512-NkBsEEB6FIZOZ3T8frvEBOB243dm46SPufpDckY/Ap/YH24V1zLeMmDY8OA10lk452NdrF621+ynDThE7FQU2A==}
+    dependencies:
+      tslib: 2.5.0
+    dev: false
 
   /run-parallel@1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
@@ -2571,6 +2656,12 @@ packages:
     resolution: {integrity: sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==}
     dev: true
 
+  /tippy.js@6.3.7:
+    resolution: {integrity: sha512-E1d3oP2emgJ9dRQZdf3Kkn0qJgI6ZLpyS5z6ZkY1DF3kaQaBsGZsndEpHwx+eC+tYM41HaSNvNtLx8tU57FzTQ==}
+    dependencies:
+      '@popperjs/core': 2.11.7
+    dev: false
+
   /tmp@0.0.33:
     resolution: {integrity: sha512-jRCJlojKnZ3addtTOjdIqoRuPEKBvNXcGYqzO6zWZX8KfKEpnGY5jfggJQ3EjKuu8D4bJRr0y+cYJFmYbImXGw==}
     engines: {node: '>=0.6.0'}
@@ -2593,6 +2684,10 @@ packages:
   /tslib@1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
     dev: true
+
+  /tslib@2.5.0:
+    resolution: {integrity: sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==}
+    dev: false
 
   /tsutils@3.21.0(typescript@5.0.3):
     resolution: {integrity: sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA==}
