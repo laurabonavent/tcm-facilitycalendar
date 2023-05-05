@@ -1,5 +1,11 @@
 # @lbdev/tcm-fcjs-facility
 
+## 1.1.0
+
+### Minor Changes
+
+- 42713b1: calendar installation to npm
+
 ## 1.0.1
 
 ### Patch Changes
