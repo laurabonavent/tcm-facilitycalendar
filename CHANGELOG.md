@@ -1,5 +1,11 @@
 # @lbdev/tcm-fcjs-facility
 
+## 1.2.0
+
+### Minor Changes
+
+- d4374ff: update if no data
+
 ## 1.1.0
 
 ### Minor Changes
