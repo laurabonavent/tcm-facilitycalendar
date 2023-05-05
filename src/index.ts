@@ -150,6 +150,16 @@ const getEvents = (): Event[] => {
       }
     }
 
+    // FREQUENCY
+    if (event.rrule.freq === '') {
+      event.rrule.freq = 'daily';
+    }
+
+    // INTERVAL
+    if (event.rrule.interval === null) {
+      event.rrule.interval = 1;
+    }
+
     //EXCEPTION DATES
     const exDateArray = event.getexdate;
     const noEmpty = Array.from(exDateArray.filter((e) => e));
