@@ -21,20 +21,48 @@ window.Webflow.push(() => {
   console.log({ events });
 
   const calendar = new Calendar(calendarElement, {
-    plugins: [multiMonthPlugin, listPlugin, rrulePlugin],
-    initialView: 'multiMonthYear',
+    plugins: [dayGridPlugin, listPlugin, rrulePlugin],
+    initialView: 'dayGridMonth',
     //initialView: 'listWeek',
     //multiMonthMaxColumns: 1,
     fixedWeekCount: false,
     showNonCurrentDates: false,
-    slotMinTime: '07:00:00',
+    slotMinTime: '08:00:00',
+    height: 'auto',
     headerToolbar: {
       left: 'prev,next',
       center: 'title',
-      right: 'multiMonthYear,listMonth',
+      right: 'dayGridMonth,listMonth',
+    },
+
+    buttonText: {
+      month: 'Mois',
+      list: 'Liste',
     },
 
     events,
+
+    eventTimeFormat: {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false,
+      meridiem: false,
+    },
+
+    slotLabelFormat: {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false,
+      meridiem: false,
+    },
+
+    windowResize: function () {
+      if (window.innerWidth > 1000) {
+        calendar.changeView('dayGridMonth');
+      } else if (window.innerWidth < 1000) {
+        calendar.changeView('listMonth');
+      }
+    },
 
     /*events: [
       {
@@ -59,12 +87,18 @@ window.Webflow.push(() => {
     },*/
 
     eventMouseEnter(data) {
-      console.log(data.event.extendedProps);
       const lieu = data.event.extendedProps.localisation;
       const h = data.event.extendedProps.horaire;
       tippy(data.el, {
-        content: lieu + ' indisponible // ' + h,
+        //content: lieu + ' indisponible // ' + h,
+        content:
+          '<div style="padding:15px;"><p style="color:black; font-family:Red Hat Display, sans-serif; font-size:1.25rem; line-height:125%; margin:5px 0px;">' +
+          lieu +
+          ' indisponible </p><img style="margin-right:5px; width:14px;"src = "https://uploads-ssl.webflow.com/63e60ae0d172c02222cc9e79/641e2de18be4f26e9913a9e2_clock%201.svg" > </img>' +
+          h +
+          '</div></div>',
         placement: 'bottom',
+        allowHTML: true,
         arrow: true,
         theme: 'light',
       });
@@ -80,7 +114,7 @@ const getEvents = (): Event[] => {
   const events = [...scripts].map((script) => {
     const event: Event = JSON.parse(script.textContent!);
     //add background to event
-    event.display = 'block';
+    event.display = 'list-item';
     event.title = event.extendedProps.localisation + ' indisponible';
     event.url = '';
 
@@ -200,9 +234,9 @@ const getEvents = (): Event[] => {
 
     //BACKGROUND COLOR :
     if (event.extendedProps.localisation === 'Théâtre') {
-      event.backgroundColor = '#0A0A0A';
+      event.backgroundColor = '#c33149';
     } else if (event.extendedProps.localisation === 'Foyer') {
-      event.backgroundColor = '#525252';
+      event.backgroundColor = '#0A0A0A';
     } else if (event.extendedProps.localisation === 'Studio') {
       event.backgroundColor = '#8f8f8f';
     }
