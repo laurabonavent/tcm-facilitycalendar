@@ -1,5 +1,11 @@
 # @lbdev/tcm-fcjs-facility
 
+## 1.2.1
+
+### Patch Changes
+
+- f89edec: new version
+
 ## 1.2.0
 
 ### Minor Changes
