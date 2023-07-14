@@ -92,7 +92,7 @@ window.Webflow.push(() => {
       tippy(data.el, {
         //content: lieu + ' indisponible // ' + h,
         content:
-          '<div style="padding:15px;"><p style="color:black; font-family:Red Hat Display, sans-serif; font-size:1.25rem; line-height:125%; margin:5px 0px;">' +
+          '<div style="padding:15px; background-color:white;"><p style="color:black; font-family:Red Hat Display, sans-serif; font-size:1.25rem; line-height:125%; margin:5px 0px;">' +
           lieu +
           ' indisponible </p><img style="margin-right:5px; width:14px;"src = "https://uploads-ssl.webflow.com/63e60ae0d172c02222cc9e79/641e2de18be4f26e9913a9e2_clock%201.svg" > </img>' +
           h +
@@ -117,6 +117,10 @@ const getEvents = (): Event[] => {
     event.display = 'list-item';
     event.title = event.extendedProps.localisation + ' indisponible';
     event.url = '';
+
+    event.startTime = '10:00:00';
+    event.allDay = false;
+    //event.displayEventTime = false;
 
     //apostrophe display
     event.title = event.title.replace(/&#39;/g, "'");
@@ -223,7 +227,7 @@ const getEvents = (): Event[] => {
         //year
         const exYear = exDate.getFullYear();
 
-        const fullExDate = exYear + '-' + exMonthOk + '-' + exDayOk + 'T' + event.startTime;
+        const fullExDate = exYear + '-' + exMonthOk + '-' + exDayOk;
 
         //assign to ex date
         event.exdate.push(fullExDate);
