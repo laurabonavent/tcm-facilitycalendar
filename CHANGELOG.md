@@ -1,5 +1,11 @@
 # @lbdev/tcm-fcjs-facility
 
+## 1.2.2
+
+### Patch Changes
+
+- 95cea92: hide times
+
 ## 1.2.1
 
 ### Patch Changes
