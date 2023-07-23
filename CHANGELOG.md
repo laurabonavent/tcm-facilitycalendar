@@ -1,5 +1,11 @@
 # @lbdev/tcm-fcjs-facility
 
+## 1.3.0
+
+### Minor Changes
+
+- 640b8ec: no days handle
+
 ## 1.2.2
 
 ### Patch Changes
