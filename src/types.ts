@@ -24,4 +24,5 @@ export type Event = {
   repertoire: string;
   getbyweekday: string;
   allDay: boolean;
+  getInterval: string;
 };
