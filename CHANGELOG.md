@@ -1,5 +1,11 @@
 # @lbdev/tcm-fcjs-facility
 
+## 1.3.1
+
+### Patch Changes
+
+- d30d3ae: exdate + interval + frequence
+
 ## 1.3.0
 
 ### Minor Changes
