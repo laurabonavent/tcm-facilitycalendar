@@ -18,7 +18,6 @@ window.Webflow.push(() => {
   if (!calendarElement) return;
 
   const events = getEvents();
-  console.log({ events });
 
   const calendar = new Calendar(calendarElement, {
     plugins: [dayGridPlugin, listPlugin, rrulePlugin],
@@ -204,8 +203,11 @@ const getEvents = (): Event[] => {
     }
 
     // INTERVAL
-    if (event.rrule.interval === null) {
+    const intervalNumber = parseInt(event.getInterval);
+    if (Number.isNaN(intervalNumber)) {
       event.rrule.interval = 1;
+    } else {
+      event.rrule.interval = parseInt(event.getInterval);
     }
 
     //EXCEPTION DATES
