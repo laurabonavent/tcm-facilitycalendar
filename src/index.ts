@@ -3,6 +3,8 @@ import 'tippy.js/themes/translucent.css';
 import 'tippy.js/dist/svg-arrow.css';
 
 import { Calendar } from '@fullcalendar/core';
+import frLocale from '@fullcalendar/core/locales/fr';
+import allLocales from '@fullcalendar/core/locales-all';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import listPlugin from '@fullcalendar/list';
 import multiMonthPlugin from '@fullcalendar/multimonth';
@@ -21,6 +23,8 @@ window.Webflow.push(() => {
 
   const calendar = new Calendar(calendarElement, {
     plugins: [dayGridPlugin, listPlugin, rrulePlugin],
+
+    locale: 'fr',
     initialView: 'dayGridMonth',
     //initialView: 'listWeek',
     //multiMonthMaxColumns: 1,
@@ -103,17 +107,28 @@ window.Webflow.push(() => {
       });
     },
   });
+  calendar.setOption('locale', 'fr');
 
   calendar.render();
 });
 
 const getEvents = (): Event[] => {
-  const scripts = document.querySelectorAll<HTMLScriptElement>('[data-element="event-data"]');
+  const scripts = new Set([
+    ...document.querySelectorAll<HTMLScriptElement>('[data-element="event-data"]'),
+    ...document.querySelectorAll<HTMLScriptElement>('[data-element="facility-calendar-data"]'),
+  ]);
 
   const events = [...scripts].map((script) => {
     const event: Event = JSON.parse(script.textContent!);
-    //add background to event
-    event.display = 'list-item';
+    console.log(event);
+
+    //event display
+    if (event.extendedProps.localisation === 'Extérieur') {
+      event.display = 'none';
+    } else {
+      event.display = 'list-item';
+    }
+
     event.title = event.extendedProps.localisation + ' indisponible';
     event.url = '';
 
