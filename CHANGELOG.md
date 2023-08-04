@@ -1,5 +1,11 @@
 # @lbdev/tcm-fcjs-facility
 
+## 1.3.2
+
+### Patch Changes
+
+- b68fb22: add new collection
+
 ## 1.3.1
 
 ### Patch Changes
