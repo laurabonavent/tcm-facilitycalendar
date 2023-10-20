@@ -121,7 +121,6 @@ const getEvents = (): Event[] => {
   const events = [...scripts].map((script) => {
     const event: Event = JSON.parse(script.textContent!);
     console.log(event);
-
     //event display
     if (event.extendedProps.localisation === 'Extérieur') {
       event.display = 'none';
